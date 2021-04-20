@@ -7,6 +7,8 @@ if (process.env.NODE_ENV === 'development') {
 const s3 = new AWS.S3({ apiVersion: '2006-03-01' })
 
 exports.handler = async (event) => {
+  console.log('fuction starting')
+
   const Bucket = event.Records[0].s3.bucket.name
   const Key = decodeURIComponent(event.Records[0].s3.object.key.replace(/\+/g, ' '))
 
@@ -23,5 +25,7 @@ exports.handler = async (event) => {
   } catch (err) {
     console.log('Error: ' + err)
     throw err
+  } finally {
+    console.log('function finished')
   }
 }
