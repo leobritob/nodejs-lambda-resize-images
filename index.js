@@ -1,6 +1,8 @@
 const AWS = require('aws-sdk')
 const sharp = require('sharp')
-require('dotenv').config()
+if (process.env.NODE_ENV === 'development') {
+  require('dotenv').config()
+}
 
 const s3 = new AWS.S3({ apiVersion: '2006-03-01' })
 
