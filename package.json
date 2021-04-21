@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predeploy": "rm -rf node_modules && npm i --production && zip -r deploy.zip ./",
+    "predeploy": "zip -r deploy.zip ./",
     "deploy": "aws lambda update-function-code --function-name tonSalesUploadProductPhoto --zip-file fileb://deploy.zip",
     "postdeploy": "rm -rf deploy.zip"
   },
